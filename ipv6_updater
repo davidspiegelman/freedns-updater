@@ -15,7 +15,7 @@ fi
 CONF_PATH=$(dirname "$(readlink -f "$0")")
 . "$CONF_PATH/ipv6_updater.conf"
 
-IP=$(dig +short AAAA $1 @localhost | grep -v '^fd24' | grep :)
+IP=$(dig +short AAAA $1 @localhost | grep -v '^fd' | grep :)
 
 if [ $? -eq 0 ]; then
   curl -s "$BASE_URL?u=$USERNAME&p=$PASSWORD&h=$2&ip=$IP"
